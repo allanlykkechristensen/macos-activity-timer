@@ -20,24 +20,21 @@ import AppKit
         }
     }
     
-    @IBAction func clickAction(_ sender: Any) {
-        
-    }
+    /// Margin from the clock face outer circle to the time remaining pie chart
+    @IBInspectable var marginToClockFace: CGFloat = 15.0
+    /// Margin from the clock face outer circle to the time remaining pie chart
+    @IBInspectable var marginToMinorSecondMarker: CGFloat = 10.0
+    @IBInspectable var marginToMajorSecondMarker: CGFloat = 15.0
+    @IBInspectable var majorSecondMarkerWidth: CGFloat = 2.5
+    @IBInspectable var minorSecondMarkerWidth: CGFloat = 1.0
+    @IBInspectable var markerColor: NSColor = NSColor.black
+    
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         let context = NSGraphicsContext.current?.cgContext
         drawTimer(context: context)
         drawRemainingTime(context: context)
-    }
-    
-    fileprivate struct Constants {
-        static let marginToClockFace: CGFloat = 15.0
-        static let marginToMinorSecondMarker: CGFloat = 10.0
-        static let marginToMajorSecondMarker: CGFloat = 15.0
-        static let majorSecondMarkerWidth: CGFloat = 2.5
-        static let minorSecondMarkerWidth: CGFloat = 1.0
-        static let markerColor: NSColor = NSColor.black
     }
 }
 
@@ -54,9 +51,7 @@ extension TimerView {
         context?.setFillColor(NSColor.white.cgColor)
         context?.setStrokeColor(NSColor.black.cgColor)
         context?.setLineWidth(4.0)
-        
         context?.fillPath()
-        
         
         // Add 60 markers on the clock face (like a normal analog clock)
         for i in 1...60 {
@@ -67,10 +62,10 @@ extension TimerView {
             
             // Determine if it is a major or minor marker
             if i % 5 == 0 {
-                drawSecondMarker(ctx: context, x: radius-Constants.marginToMajorSecondMarker, y:0, radius:radius, lineWidth: Constants.majorSecondMarkerWidth, color: Constants.markerColor)
+                drawSecondMarker(ctx: context, x: radius-marginToMajorSecondMarker, y:0, radius:radius, lineWidth: majorSecondMarkerWidth, color: markerColor)
             }
             else {
-                drawSecondMarker(ctx: context, x: radius-Constants.marginToMinorSecondMarker, y:0, radius:radius, lineWidth: Constants.minorSecondMarkerWidth, color: Constants.markerColor)
+                drawSecondMarker(ctx: context, x: radius-marginToMinorSecondMarker, y:0, radius:radius, lineWidth: minorSecondMarkerWidth, color: markerColor)
             }
             
             context?.restoreGState()
@@ -91,7 +86,7 @@ extension TimerView {
     
     /// Draws the pie chart representing the remaining time.
     func drawRemainingTime(context: CGContext?) {
-        let radius = min(frame.size.width, frame.size.height) * 0.5 - Constants.marginToClockFace
+        let radius = min(frame.size.width, frame.size.height) * 0.5 - marginToClockFace
         let viewCenter = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
         let startAngle = CGFloat.pi / 2
         
