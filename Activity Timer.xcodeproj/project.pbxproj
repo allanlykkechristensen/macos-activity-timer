@@ -87,6 +87,7 @@
 		69C8D7371F8902AF00976460 = {
 			isa = PBXGroup;
 			children = (
+				694381471F8F8675006E34A6 /* README.md */,
 				69C8D7421F8902AF00976460 /* Activity Timer */,
 				69C8D7551F8902AF00976460 /* Activity TimerTests */,
 				69C8D7411F8902AF00976460 /* Products */,
@@ -114,7 +115,6 @@
 				69C8D7491F8902AF00976460 /* Main.storyboard */,
 				69C03FAF1F91235000BFE289 /* alarm.wav */,
 				69C8D7641F89489C00976460 /* Supporting Files */,
-				694381471F8F8675006E34A6 /* README.md */,
 			);
 			path = "Activity Timer";
 			sourceTree = "<group>";
