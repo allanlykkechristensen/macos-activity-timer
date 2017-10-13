@@ -4,14 +4,9 @@
 
 Activity Timer is a Time Timer inspired timer for macOS. It has been created for timing activiies during [Google Venture Design Sprints](http://www.gv.com/sprint/) and served as a learning project to get familar with Core Graphics.
 
-## Pending Tasks - Version 1.0
+## Roadmap
 
-- [ ] Introduce text labels on the background based on the timer set
-- [ ] Replace slider with a more usable way of setting the timer
-- [ ] Allow setting the timer on the main window
-- [ ] Allow configuration of the "finished" sound
-- [ ] Introduce user tracking (maybe version 2?)
-
+See the [Activity Timer project](https://github.com/allanlykkechristensen/macos-activity-timer/projects/1)
 
 ## Inspiration
 
@@ -21,8 +16,9 @@ Below are tutorials and other materiale used while developing the app.
 * <https://www.raywenderlich.com/151741/macos-development-beginners-part-1>
 * <http://sketchytech.blogspot.dk/2014/11/swift-how-to-draw-clock-face-using.html>
 
-
 ## License
+
+### Source Code
 
 Copyright 2017 Allan Lykke Christensen
 
