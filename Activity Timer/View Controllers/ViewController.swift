@@ -17,10 +17,10 @@ class ViewController: NSViewController {
     var activityTimer = ActivityTimer()
     var prefs = Preferences()
     var soundPlayer: AVAudioPlayer?
+    var started = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         activityTimer.delegate = self
         setupPrefs()
@@ -34,11 +34,11 @@ class ViewController: NSViewController {
 
     // MARK: - Button Actions
     @IBAction func timerClicked(_ sender: NSButton) {
-        if sender.title == "||" {
-        sender.title = ">"
+        if !started {
+            started = true
             startTimer()
         } else {
-        sender.title = "||"
+            started = false
             stopTimer()
         }
     }
@@ -62,6 +62,7 @@ class ViewController: NSViewController {
 extension ViewController {
     
     func startTimer() {
+        timerView.started = true
         if activityTimer.isPaused {
             activityTimer.resumeTimer()
         } else {
@@ -73,11 +74,13 @@ extension ViewController {
     }
     
     func stopTimer() {
+        timerView.started = false
         activityTimer.stopTimer()
         configureButtonsAndMenus()
     }
     
     func resetTimer() {
+        timerView.started = false
         activityTimer.resetTimer()
         updateDisplay(for: prefs.selectedTime)
         configureButtonsAndMenus()
@@ -92,6 +95,7 @@ extension ViewController : ActivityTimerProtocol {
     }
     
     func timerHasFinished(_ timer: ActivityTimer) {
+        timerView.started = false
         updateDisplay(for: 0)
         playSound()
     }

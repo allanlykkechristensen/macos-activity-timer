@@ -271,8 +271,9 @@ DQ
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Activity Timer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="ActivityTimerMainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="644" y="299" width="350" height="500"/>
+                        <rect key="contentRect" x="644" y="299" width="490" height="550"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="490" height="550"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -290,29 +291,29 @@ DQ
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Activity_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="456"/>
+                        <rect key="frame" x="0.0" y="0.0" width="561" height="578"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbj-sP-D2I">
-                                <rect key="frame" x="0.0" y="0.0" width="350" height="436"/>
+                                <rect key="frame" x="0.0" y="0.0" width="561" height="578"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YAx-Lp-ZWM">
-                                        <rect key="frame" x="-2" y="406" width="354" height="30"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="6:00" id="B6r-ZM-mVb">
-                                            <font key="font" metaFont="system" size="25"/>
-                                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        <rect key="frame" x="0.0" y="561" width="561" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="6:00" drawsBackground="YES" id="B6r-ZM-mVb">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.13385635609999999" green="0.16446632150000001" blue="0.17372050880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </textFieldCell>
                                     </textField>
-                                    <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLW-UW-v4M" customClass="TimerView" customModule="Activity_Timer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="406"/>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLW-UW-v4M" customClass="TimerView" customModule="Activity_Timer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="561" height="561"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6H-ol-ypi">
-                                                <rect key="frame" x="6" y="7" width="338" height="395"/>
+                                                <rect key="frame" x="6" y="1" width="549" height="560"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <buttonCell key="cell" type="bevel" title="||" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="2Ga-mi-o4t">
+                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="2Ga-mi-o4t">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" size="33" name="HelveticaNeue-Bold"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="timerClicked:" target="XfG-lQ-9wD" id="pN2-MI-zsz"/>
@@ -326,17 +327,33 @@ DQ
                                             <userDefinedRuntimeAttribute type="color" keyPath="markerColor">
                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="roundedBorderThickness">
+                                                <real key="value" value="35"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="roundedBorderColor">
+                                                <color key="value" red="0.13385635614395142" green="0.16446632146835327" blue="0.17372050881385803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="timeRemainingColor">
+                                                <color key="value" red="0.88771158456802368" green="0.09418729692697525" blue="0.2120215892791748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minorSecondMarkerWidth">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="majorSecondMarkerWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="jLW-UW-v4M" secondAttribute="trailing" id="J2h-SJ-jJt"/>
-                                    <constraint firstAttribute="bottom" secondItem="jLW-UW-v4M" secondAttribute="bottom" id="KY5-vp-S36"/>
-                                    <constraint firstItem="YAx-Lp-ZWM" firstAttribute="leading" secondItem="dbj-sP-D2I" secondAttribute="leading" id="QJd-83-hvV"/>
-                                    <constraint firstItem="jLW-UW-v4M" firstAttribute="leading" secondItem="dbj-sP-D2I" secondAttribute="leading" id="XPs-HQ-446"/>
-                                    <constraint firstItem="YAx-Lp-ZWM" firstAttribute="top" secondItem="dbj-sP-D2I" secondAttribute="top" id="YYI-xp-uJx"/>
-                                    <constraint firstAttribute="trailing" secondItem="YAx-Lp-ZWM" secondAttribute="trailing" id="Yj1-cP-h1t"/>
-                                    <constraint firstItem="jLW-UW-v4M" firstAttribute="top" secondItem="YAx-Lp-ZWM" secondAttribute="bottom" id="mik-sU-XfI"/>
+                                    <constraint firstItem="YAx-Lp-ZWM" firstAttribute="leading" secondItem="dbj-sP-D2I" secondAttribute="leading" id="4Um-hB-Ie6"/>
+                                    <constraint firstAttribute="bottom" secondItem="jLW-UW-v4M" secondAttribute="bottom" id="AtG-5q-HRW"/>
+                                    <constraint firstAttribute="trailing" secondItem="jLW-UW-v4M" secondAttribute="trailing" id="EUi-jj-7To"/>
+                                    <constraint firstAttribute="bottom" secondItem="jLW-UW-v4M" secondAttribute="bottom" id="SIS-3K-38C"/>
+                                    <constraint firstItem="YAx-Lp-ZWM" firstAttribute="leading" secondItem="jLW-UW-v4M" secondAttribute="leading" id="for-5L-8MQ"/>
+                                    <constraint firstItem="jLW-UW-v4M" firstAttribute="top" secondItem="YAx-Lp-ZWM" secondAttribute="bottom" id="mfY-bW-SUQ"/>
+                                    <constraint firstItem="jLW-UW-v4M" firstAttribute="leading" secondItem="dbj-sP-D2I" secondAttribute="leading" id="spW-Cs-XoV"/>
+                                    <constraint firstItem="jLW-UW-v4M" firstAttribute="top" secondItem="YAx-Lp-ZWM" secondAttribute="bottom" id="vHV-va-viM"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -349,11 +366,10 @@ DQ
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="dbj-sP-D2I" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="GfG-Yh-b38"/>
-                            <constraint firstItem="dbj-sP-D2I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Hbp-EW-e1i"/>
-                            <constraint firstAttribute="bottom" secondItem="dbj-sP-D2I" secondAttribute="bottom" id="Ucf-za-x2o"/>
-                            <constraint firstAttribute="trailing" secondItem="dbj-sP-D2I" secondAttribute="trailing" id="YnW-vg-BB5"/>
-                            <constraint firstItem="dbj-sP-D2I" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="syV-tR-7nq"/>
+                            <constraint firstItem="dbj-sP-D2I" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="FbZ-7P-eKF"/>
+                            <constraint firstAttribute="bottom" secondItem="dbj-sP-D2I" secondAttribute="bottom" id="VTS-Md-5ye"/>
+                            <constraint firstItem="dbj-sP-D2I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="jgT-bo-CGh"/>
+                            <constraint firstAttribute="trailing" secondItem="dbj-sP-D2I" secondAttribute="trailing" id="nEi-y6-wt3"/>
                         </constraints>
                     </view>
                     <connections>
