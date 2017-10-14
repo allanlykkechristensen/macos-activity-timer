@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		694381471F8F8675006E34A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6978E6A31F92C2FD00FFE27E /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		69B12F4F1F8F5D1B0034634D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		69B12F561F8F63490034634D /* NSColor+ActivityTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+ActivityTimer.swift"; sourceTree = "<group>"; };
 		69C03FAF1F91235000BFE289 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
@@ -68,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6978E6A21F92C2B900FFE27E /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				6978E6A31F92C2FD00FFE27E /* screenshot.png */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		69B12F4E1F8F5CB90034634D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +96,7 @@
 		69C8D7371F8902AF00976460 = {
 			isa = PBXGroup;
 			children = (
+				6978E6A21F92C2B900FFE27E /* Docs */,
 				694381471F8F8675006E34A6 /* README.md */,
 				69C8D7421F8902AF00976460 /* Activity Timer */,
 				69C8D7551F8902AF00976460 /* Activity TimerTests */,
