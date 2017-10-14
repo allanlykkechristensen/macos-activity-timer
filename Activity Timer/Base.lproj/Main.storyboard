@@ -186,14 +186,17 @@
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMb-bF-uUf">
                                 <rect key="frame" x="18" y="145" width="381" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="Design Sprint Monday: Long term goal and Sprint Questions" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="75" imageScaling="proportionallyDown" inset="2" selectedItem="UYs-9p-REe" id="pxs-Qv-dO9">
+                                <popUpButtonCell key="cell" type="push" title="Design Sprint Monday: Long term goal and Sprint Questions (75 mins)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="75" imageScaling="proportionallyDown" inset="2" selectedItem="UYs-9p-REe" id="pxs-Qv-dO9">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="u31-Jf-mZJ">
                                         <items>
-                                            <menuItem title="Design Sprint Monday: Long term goal and Sprint Questions" state="on" tag="75" id="UYs-9p-REe"/>
-                                            <menuItem title="Design Sprint Monday: Make a map" tag="90" id="5wq-0e-t0W"/>
-                                            <menuItem title="Design Sprint Monday: Pick a target" tag="30" id="dTZ-qa-i2q"/>
+                                            <menuItem title="Design Sprint Monday: Long term goal and Sprint Questions (75 mins)" state="on" tag="75" id="UYs-9p-REe"/>
+                                            <menuItem title="Design Sprint Monday: Make a map (90 mins)" tag="90" id="5wq-0e-t0W"/>
+                                            <menuItem title="Design Sprint Monday: Pick a target (30 mins)" tag="30" id="dTZ-qa-i2q"/>
+                                            <menuItem title="1 min" tag="1" id="YWU-Nv-QuA">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                             <menuItem isSeparatorItem="YES" id="SNf-Qb-DA6"/>
                                             <menuItem title="Custom" id="PfV-GW-APQ">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -287,28 +290,25 @@ DQ
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Activity_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="451"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="456"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbj-sP-D2I">
-                                <rect key="frame" x="20" y="20" width="310" height="411"/>
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="436"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YAx-Lp-ZWM">
-                                        <rect key="frame" x="101" y="350" width="108" height="61"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="61" id="2de-Nn-kzI"/>
-                                        </constraints>
+                                        <rect key="frame" x="-2" y="406" width="354" height="30"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="6:00" id="B6r-ZM-mVb">
-                                            <font key="font" size="51" name="HelveticaNeue"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="font" metaFont="system" size="25"/>
+                                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLW-UW-v4M" customClass="TimerView" customModule="Activity_Timer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="342"/>
+                                    <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLW-UW-v4M" customClass="TimerView" customModule="Activity_Timer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="406"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6H-ol-ypi">
-                                                <rect key="frame" x="6" y="7" width="298" height="331"/>
+                                                <rect key="frame" x="6" y="7" width="338" height="395"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <buttonCell key="cell" type="bevel" title="||" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="2Ga-mi-o4t">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -329,6 +329,15 @@ DQ
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jLW-UW-v4M" secondAttribute="trailing" id="J2h-SJ-jJt"/>
+                                    <constraint firstAttribute="bottom" secondItem="jLW-UW-v4M" secondAttribute="bottom" id="KY5-vp-S36"/>
+                                    <constraint firstItem="YAx-Lp-ZWM" firstAttribute="leading" secondItem="dbj-sP-D2I" secondAttribute="leading" id="QJd-83-hvV"/>
+                                    <constraint firstItem="jLW-UW-v4M" firstAttribute="leading" secondItem="dbj-sP-D2I" secondAttribute="leading" id="XPs-HQ-446"/>
+                                    <constraint firstItem="YAx-Lp-ZWM" firstAttribute="top" secondItem="dbj-sP-D2I" secondAttribute="top" id="YYI-xp-uJx"/>
+                                    <constraint firstAttribute="trailing" secondItem="YAx-Lp-ZWM" secondAttribute="trailing" id="Yj1-cP-h1t"/>
+                                    <constraint firstItem="jLW-UW-v4M" firstAttribute="top" secondItem="YAx-Lp-ZWM" secondAttribute="bottom" id="mik-sU-XfI"/>
+                                </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -340,13 +349,11 @@ DQ
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dbj-sP-D2I" secondAttribute="trailing" constant="20" symbolic="YES" id="DTd-52-76E"/>
                             <constraint firstItem="dbj-sP-D2I" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="GfG-Yh-b38"/>
-                            <constraint firstItem="dbj-sP-D2I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="J0s-cI-Ka7"/>
-                            <constraint firstAttribute="bottom" secondItem="dbj-sP-D2I" secondAttribute="bottom" constant="20" id="pyr-CD-u2v"/>
-                            <constraint firstAttribute="trailing" secondItem="dbj-sP-D2I" secondAttribute="trailing" constant="20" id="roy-Ns-Bq6"/>
+                            <constraint firstItem="dbj-sP-D2I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Hbp-EW-e1i"/>
+                            <constraint firstAttribute="bottom" secondItem="dbj-sP-D2I" secondAttribute="bottom" id="Ucf-za-x2o"/>
+                            <constraint firstAttribute="trailing" secondItem="dbj-sP-D2I" secondAttribute="trailing" id="YnW-vg-BB5"/>
                             <constraint firstItem="dbj-sP-D2I" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="syV-tR-7nq"/>
-                            <constraint firstItem="dbj-sP-D2I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="ydb-jx-6ou"/>
                         </constraints>
                     </view>
                     <connections>

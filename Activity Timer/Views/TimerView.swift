@@ -28,6 +28,7 @@ import AppKit
     @IBInspectable var majorSecondMarkerWidth: CGFloat = 2.5
     @IBInspectable var minorSecondMarkerWidth: CGFloat = 1.0
     @IBInspectable var markerColor: NSColor = NSColor.black
+    @IBInspectable var backgroundColor: NSColor = NSColor.white
     
     
     override func draw(_ dirtyRect: NSRect) {
@@ -35,6 +36,7 @@ import AppKit
         let context = NSGraphicsContext.current?.cgContext
         drawTimer(context: context)
         drawRemainingTime(context: context)
+        self.layer?.backgroundColor = backgroundColor.cgColor
     }
 }
 
