@@ -12,14 +12,23 @@ import AppKit
 /// ⏰ TimerView is a custom view containing the rendering of the pie chart representing the spent and remaining time.
 @IBDesignable class TimerView : NSView {
     
-    /// Percent time remaining. When this property is updated indicate that the view should be updated.
+    enum Constants {
+        /// Circumference of a perimeter
+        static let perimeter = CGFloat(2*Double.pi)
+        /// Full rotation in degrees, i.e. 360 degrees
+        static let fullRotation = CGFloat(360);
+    }
+    
+    
+    /// Public property containing the percent of time remaining, expressed as a decimal number. When the property is updated the view will be notified to redrawn.
     /// - Postcondition: Percent is updated and notification sent to update view
     @IBInspectable var timeRemaining: Double = 0.0 {
         didSet {
             self.needsDisplay = true
         }
     }
-    
+
+    /// Public property determining if the icon in the middle of the timer should appear as if the timer is running (true) or is stopped (false).
     var started = false {
         didSet {
             self.needsDisplay = true
@@ -40,12 +49,36 @@ import AppKit
     @IBInspectable var roundedBorderRadius: CGFloat = 40
     @IBInspectable var timeRemainingColor: NSColor = NSColor.pieChartTimeRemainingFillColor
     
-    /// Calculated property returning the center of the circle as as CGPoint
-    var viewCenter : CGPoint {
+    // MARK: - Clock hand properties
+    
+    /// The radius of the dot in the middle, part of the clock hand
+    @IBInspectable var clockHandDotRadius: CGFloat = 25
+    /// The length of the pointer from the radius of the dot in the middle towards the clock ring
+    @IBInspectable var clockHandPointerLength: CGFloat = 20
+    /// Thickness of the clock hand pointer
+    @IBInspectable var clockHandPointerWidth: CGFloat = 10
+    /// Color of the clock hand dot and pointer
+    @IBInspectable var clockHandColor: NSColor = NSColor.black
+    /// Color of the play-state icon in the clock hand dot
+    @IBInspectable var clockHandStateIconColor: NSColor = NSColor.white
+
+    // MARK: - Calculated properties
+    
+    /// Calculated private property returning the center of the circle as as CGPoint. This is used to draw all elements in the view.
+    private var viewCenter : CGPoint {
         get {
             return CGPoint(x: bounds.size.width / 2, y: bounds.size.height / 2)
         }
     }
+    
+    /// Calculated private property returning the origin of the coordination system (i.e. 0,0)
+    private var origin : CGPoint {
+        get {
+            return CGPoint(x: 0, y:0)
+        }
+    }
+    
+    /// MARK: - Overriden NSView Methods
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -63,61 +96,28 @@ import AppKit
 
 extension TimerView {
     
+    /// Draws the clock hand consisting of a fat dot in the middle with the state of the timer (started/paused) and with a line potining in the direction of the time remaining.
     func drawClockHand(context: CGContext?) {
-        let dotRadius = CGFloat(25)
-        
-        
-        // Dot in the middle
-        let endAngle = CGFloat(2 * Double.pi)
-        context?.addArc(center: viewCenter, radius: dotRadius, startAngle: 0, endAngle:endAngle, clockwise: true)
-        context?.setFillColor(NSColor.black.cgColor)
-        context?.fillPath()
-        
-        context?.setFillColor(NSColor.black.cgColor)
-        context?.setStrokeColor(NSColor.black.cgColor)
-        context?.move(to: CGPoint(x: viewCenter.x, y: viewCenter.y+dotRadius))
-        context?.addLine(to: CGPoint(x: viewCenter.x+dotRadius+10, y:viewCenter.y))
-        context?.addLine(to: CGPoint(x: viewCenter.x, y:viewCenter.y-dotRadius))
-        context?.closePath()
-        context?.fillPath()
-        
-        // Play icon
-        context?.setFillColor(NSColor.white.cgColor)
-        context?.setStrokeColor(NSColor.white.cgColor)
-        if (!started) {
-            context?.move(to: viewCenter)
-            context?.addLine(to: CGPoint(x: viewCenter.x, y:viewCenter.y + 5))
-            context?.addLine(to: CGPoint(x: viewCenter.x+5, y:viewCenter.y))
-            context?.addLine(to: CGPoint(x: viewCenter.x, y:viewCenter.y - 5))
-            context?.closePath()
-            context?.strokePath()
-        } else {
-            context?.move(to: CGPoint(x: viewCenter.x-3, y: viewCenter.y-10))
-            context?.addLine(to: CGPoint(x: viewCenter.x-3, y:viewCenter.y + 10))
-            context?.move(to: CGPoint(x: viewCenter.x+3, y: viewCenter.y-10))
-            context?.addLine(to: CGPoint(x: viewCenter.x+3, y:viewCenter.y + 10))
-            
-            context?.strokePath()
-        }
+        drawClockHandDot(context: context)
+        drawClockHandPointer(context: context)
+        drawClockHandState(context: context)
     }
-    
     
     /// Draws the clock rounded borders
     func drawBorder(rect: NSRect) {
-        // Draw border around clock
-        let newRect = NSRect(x: rect.origin.x+2, y: rect.origin.y+2, width: rect.size.width-3, height: rect.size.height-3)
-        
-        let textViewSurround = NSBezierPath(roundedRect: newRect, xRadius: roundedBorderRadius, yRadius: roundedBorderRadius)
-        textViewSurround.lineWidth = roundedBorderThickness
+        // Set the color of the border
         roundedBorderColor.setStroke()
-        textViewSurround.stroke()
+        
+        let newRect = NSRect(x: rect.origin.x+2, y: rect.origin.y+2, width: rect.size.width-3, height: rect.size.height-3)
+        let borderPath = NSBezierPath(roundedRect: newRect, xRadius: roundedBorderRadius, yRadius: roundedBorderRadius)
+        borderPath.lineWidth = roundedBorderThickness
+        borderPath.stroke()
     }
     
     /// Draws the clock face including the markers
     func drawTimer(context: CGContext?) {
         let radius = min(frame.size.width, frame.size.height) * 0.5 - roundedBorderRadius
-        let endAngle = CGFloat(2 * Double.pi)
-        context?.addArc(center: viewCenter, radius: radius, startAngle: 0, endAngle:endAngle, clockwise: true)
+        context?.addArc(center: viewCenter, radius: radius, startAngle: 0, endAngle:Constants.perimeter, clockwise: true)
         context?.setFillColor(NSColor.white.cgColor)
         context?.setStrokeColor(NSColor.black.cgColor)
         context?.setLineWidth(4.0)
@@ -160,10 +160,61 @@ extension TimerView {
         let startAngle = CGFloat.pi / 2
         
         context?.setFillColor(timeRemainingColor.cgColor)
-        let endAngle = startAngle + 2 * CGFloat.pi * CGFloat(timeRemaining)
+        let endAngle = startAngle + Constants.perimeter * CGFloat(timeRemaining)
         context?.move(to: viewCenter)
         context?.addArc(center: viewCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
         context?.fillPath()
+    }
+    
+    /// Draws the dot in the middle of the clock hand.
+    func drawClockHandDot(context: CGContext?) {
+        context?.addArc(center: self.viewCenter, radius: self.clockHandDotRadius, startAngle: 0, endAngle:Constants.perimeter, clockwise: true)
+        context?.setFillColor(self.clockHandColor.cgColor)
+        context?.fillPath()
+    }
+    
+    /// Draw clock hand pointer in the direction of the time remaining.
+    func drawClockHandPointer(context: CGContext?) {
+        // To point in the right direction the context is rotated in the direction of the time remaining
+        context?.saveGState()
+        context?.translateBy(x: viewCenter.x, y: viewCenter.y)
+        context?.rotate(by: CGFloat(timeRemaining) * degree2radian(Constants.fullRotation))
+        
+        // Draw pointer
+        let path = CGMutablePath()
+        path.move(to: self.origin)
+        path.addLine(to: CGPoint(x: self.origin.x, y: self.clockHandDotRadius + self.clockHandPointerLength))
+        context?.addPath(path)
+        context?.setStrokeColor(self.clockHandColor.cgColor)
+        context?.setLineWidth(self.clockHandPointerWidth)
+        context?.strokePath()
+        
+        // Restore context to original state/position
+        context?.restoreGState()
+    }
+    
+    /// Draws the state of the timer in the cloch hand dot.
+    func drawClockHandState(context: CGContext?) {
+        let iconHeight = CGFloat(10)
+        let iconPauseSpacing = CGFloat(3)
+        
+        context?.setFillColor(self.clockHandStateIconColor.cgColor)
+        context?.setStrokeColor(self.clockHandStateIconColor.cgColor)
+        if (!started) {
+            context?.move(to: viewCenter)
+            context?.addLine(to: CGPoint(x: viewCenter.x, y:viewCenter.y + iconHeight/2))
+            context?.addLine(to: CGPoint(x: viewCenter.x+iconHeight/2, y:viewCenter.y))
+            context?.addLine(to: CGPoint(x: viewCenter.x, y:viewCenter.y - iconHeight/2))
+            context?.closePath()
+            context?.strokePath()
+        } else {
+            context?.move(to: CGPoint(x: viewCenter.x-iconPauseSpacing, y: viewCenter.y-iconHeight))
+            context?.addLine(to: CGPoint(x: viewCenter.x-iconPauseSpacing, y:viewCenter.y + iconHeight))
+            context?.move(to: CGPoint(x: viewCenter.x+iconPauseSpacing, y: viewCenter.y-iconHeight))
+            context?.addLine(to: CGPoint(x: viewCenter.x+iconPauseSpacing, y:viewCenter.y + iconHeight))
+            
+            context?.strokePath()
+        }
     }
 }
 
@@ -171,10 +222,9 @@ extension TimerView {
 
 extension TimerView {
     
-    /// Converts degrees to radian
-    func degree2radian(_ a:CGFloat)->CGFloat {
-        let b = CGFloat(Double.pi) * a/180
-        return b
+    /// Converts degrees to radian (pi * degree / 180)
+    func degree2radian(_ degree:CGFloat)->CGFloat {
+        return CGFloat(Double.pi) * degree/180
     }
     
 }

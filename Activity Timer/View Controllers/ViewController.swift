@@ -45,14 +45,17 @@ class ViewController: NSViewController {
     
     // MARK: - Menu Selection
     @IBAction func startTimerMenuItemSelected(_ sender: Any) {
+        started = true
         startTimer()
     }
     
     @IBAction func stopTimerMenuItemSelected(_ sender: Any) {
+        started = false
         stopTimer()
     }
     
     @IBAction func resetTimerMenuItemSelected(_ sender: Any) {
+        started = false
         resetTimer()
     }
     
@@ -121,7 +124,7 @@ extension ViewController {
             enableStop = false
             enableReset = true
         } else {
-            enableStart = true
+            enableStart = false
             enableStop = true
             enableReset = false
         }
@@ -133,11 +136,7 @@ extension ViewController {
         
     }
     
-    private func textToDisplay(for timeRemaining: TimeInterval) -> String {
-        if timeRemaining == 0 {
-            return "Time is up!!"
-        }
-        
+    private func textToDisplay(for timeRemaining: TimeInterval) -> String {        
         let minutesRemaining = floor(timeRemaining / 60)
         let secondsRemaining = timeRemaining - (minutesRemaining * 60)
         let secondsDisplay = String(format: "%02d", Int(secondsRemaining))
