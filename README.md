@@ -4,7 +4,7 @@
 
 Activity Timer is a Time Timer inspired timer for macOS. It has been created for timing activiies during [Google Venture Design Sprints](http://www.gv.com/sprint/) and served as a learning project to get familar with Core Graphics.
 
-![Screenshot of the Activity Timer](https://raw.githubusercontent.com/allanlykkechristensen/macos-activity-timer/master/Docs/screenshot.png)
+![Screenshot of the Activity Timer](https://raw.githubusercontent.com/allanlykkechristensen/macos-activity-timer/master/Docs/screenshot-20171018.png)
 
 ## Roadmap
 

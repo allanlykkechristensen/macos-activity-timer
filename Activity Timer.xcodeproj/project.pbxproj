@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		694094CA1F97DDE500954E6A /* screenshot-20171018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screenshot-20171018.png"; sourceTree = "<group>"; };
 		694381471F8F8675006E34A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6978E6A31F92C2FD00FFE27E /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		69B12F4F1F8F5D1B0034634D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		6978E6A21F92C2B900FFE27E /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				694094CA1F97DDE500954E6A /* screenshot-20171018.png */,
 				6978E6A31F92C2FD00FFE27E /* screenshot.png */,
 			);
 			path = Docs;
