@@ -29,7 +29,7 @@ import AppKit
     }
     
     /// Public property containing the total time that should be countet down. When the property is set, the intervals to display on the timer is computed and stored in the intervals property.
-    var totalTime: TimeInterval! {
+    @IBInspectable var totalTime: Double = 60.0 {
         didSet {
             self.intervals = [String]()
             let minutesRemaining = floor(totalTime / 60)
@@ -192,11 +192,13 @@ extension TimerView {
     }
     
     func drawSecondMarkersText(rect:CGRect, context: CGContext?, radius:CGFloat, sides: Int, color:NSColor) {
+        guard intervals.count > 0 else { return }
         
         // Adjust -60 degrees (i.e. 2 major ticks on the clock face)
         let points = circleCircumferencePoints(sides: sides, circleCenter: viewCenter, radius: radius, adjustment: -60)
         
         var i = intervals.count-1;
+        
         for (index, value) in points.enumerated() {
             if index > 0 && index % 5 == 0 {
                 let textFontAttributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: self.clockFaceText, NSAttributedStringKey.foregroundColor: self.clockFaceColor ]

@@ -13,7 +13,7 @@ import AVFoundation
 class ViewController: NSViewController {
 
     @IBOutlet weak var timerView: TimerView!
-    @IBOutlet weak var timeLeftField: NSTextField!
+    @IBOutlet weak var timeLeftButton: NSButton!
     var activityTimer = ActivityTimer()
     var prefs = Preferences()
     var soundPlayer: AVAudioPlayer?
@@ -106,7 +106,10 @@ extension ViewController : ActivityTimerProtocol {
 
 extension ViewController {
     func updateDisplay(for timeRemaining: TimeInterval) {
-        timeLeftField.stringValue = textToDisplay(for: timeRemaining)
+        
+        // FIXME: Don't like to have the font values here - at least store them as a constant somewhere.
+        timeLeftButton.attributedTitle = NSAttributedString(string: textToDisplay(for: timeRemaining), attributes: [ NSAttributedStringKey.foregroundColor : NSColor.red, NSAttributedStringKey.font: NSFont(name: "Arial Rounded MT Bold", size: 16)!])
+        
         timerView.totalTime = prefs.selectedTime
         timerView.timeRemaining = timeRemaining / prefs.selectedTime
     }
