@@ -107,6 +107,7 @@ extension ViewController : ActivityTimerProtocol {
 extension ViewController {
     func updateDisplay(for timeRemaining: TimeInterval) {
         timeLeftField.stringValue = textToDisplay(for: timeRemaining)
+        timerView.totalTime = prefs.selectedTime
         timerView.timeRemaining = timeRemaining / prefs.selectedTime
     }
     
@@ -155,7 +156,6 @@ extension ViewController {
         NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) {
             (notification) in self.checkForResetAfterPrefsChange()
         }
-        
     }
     
     func updateFromPrefs() {

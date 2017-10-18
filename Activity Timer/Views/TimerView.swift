@@ -27,7 +27,30 @@ import AppKit
             self.needsDisplay = true
         }
     }
-
+    
+    /// Public property containing the total time that should be countet down. When the property is set, the intervals to display on the timer is computed and stored in the intervals property.
+    var totalTime: TimeInterval! {
+        didSet {
+            self.intervals = [String]()
+            let minutesRemaining = floor(totalTime / 60)
+            let secondsRemaining = floor(minutesRemaining * 60)
+            let numbersToDisplay = 12
+            
+            let steps = secondsRemaining/Double(numbersToDisplay)
+            
+            for i in 1...numbersToDisplay {
+                let theNumber = Double(i) * steps
+                
+                let minutesRemaining = floor(theNumber / 60)
+                let secondsRemaining = theNumber - (minutesRemaining * 60)
+                let secondsDisplay = String(format: "%02d", Int(secondsRemaining))
+                let display = "\(Int(minutesRemaining)):\(secondsDisplay)"
+                
+                self.intervals.append(display)
+            }
+        }
+    }
+    
     /// Public property determining if the icon in the middle of the timer should appear as if the timer is running (true) or is stopped (false).
     var started = false {
         didSet {
@@ -61,7 +84,16 @@ import AppKit
     @IBInspectable var clockHandColor: NSColor = NSColor.black
     /// Color of the play-state icon in the clock hand dot
     @IBInspectable var clockHandStateIconColor: NSColor = NSColor.white
-
+    
+    // MARK: - Clock face properties
+    
+    // Font used to display the clock face (numbers)
+    @IBInspectable var clockFaceText: NSFont = NSFont(name: "Arial Rounded MT Bold", size: 18)!
+    
+    // Color of the font used to display the clock face (numbers)
+    @IBInspectable var clockFaceColor: NSColor = NSColor.black
+    
+    
     // MARK: - Calculated properties
     
     /// Calculated private property returning the center of the circle as as CGPoint. This is used to draw all elements in the view.
@@ -78,6 +110,8 @@ import AppKit
         }
     }
     
+    private var intervals = [String]()
+    
     /// MARK: - Overriden NSView Methods
     
     override func draw(_ dirtyRect: NSRect) {
@@ -87,6 +121,11 @@ import AppKit
         drawRemainingTime(context: context)
         drawBorder(rect: dirtyRect)
         drawClockHand(context: context)
+        
+        // TODO: Implement preference to toggle number display
+        // FIXME: Get rid of magic numbers
+        drawSecondMarkersText(rect: dirtyRect, context: context, radius: min(frame.size.width, frame.size.height) * 0.4, sides: 60, color: NSColor.black)
+        
         self.layer?.backgroundColor = backgroundColor.cgColor
         
     }
@@ -116,47 +155,69 @@ extension TimerView {
     
     /// Draws the clock face including the markers
     func drawTimer(context: CGContext?) {
-        let radius = min(frame.size.width, frame.size.height) * 0.5 - roundedBorderRadius
+        // FIXME: Get rid of magic numbers
+        let radius = min(frame.size.width, frame.size.height) * 0.4 - roundedBorderRadius
         context?.addArc(center: viewCenter, radius: radius, startAngle: 0, endAngle:Constants.perimeter, clockwise: true)
         context?.setFillColor(NSColor.white.cgColor)
         context?.setStrokeColor(NSColor.black.cgColor)
         context?.setLineWidth(4.0)
         context?.fillPath()
         
-        // Add 60 markers on the clock face (like a normal analog clock)
-        for i in 1...60 {
-            context?.saveGState()
-            // Translate and rotate into positon of next marker
-            context?.translateBy(x: frame.midX, y: frame.midY)
-            context?.rotate(by: degree2radian(CGFloat(i)*6))
-            
-            // Determine if it is a major or minor marker
-            if i % 5 == 0 {
-                drawSecondMarker(ctx: context, x: radius-marginToMajorSecondMarker, y:0, radius:radius, lineWidth: majorSecondMarkerWidth, color: markerColor)
+        drawSecondMarkers(context: context, x: self.viewCenter.x, y: self.viewCenter.y, radius: radius, sides: 60, color: markerColor)
+    }
+    
+    func drawSecondMarkers(context: CGContext?, x:CGFloat, y:CGFloat, radius:CGFloat, sides: Int, color:NSColor) {
+        let points = circleCircumferencePoints(sides: sides, circleCenter: CGPoint(x: x, y: y), radius: radius)
+        var divider: CGFloat = 1/16
+        var lineWidth = majorSecondMarkerWidth
+        for (index, value) in points.enumerated() {
+            if index % 5 == 0 {
+                divider=1/8
+                lineWidth = majorSecondMarkerWidth
+            } else {
+                divider=1/16
+                lineWidth = minorSecondMarkerWidth
             }
-            else {
-                drawSecondMarker(ctx: context, x: radius-marginToMinorSecondMarker, y:0, radius:radius, lineWidth: minorSecondMarkerWidth, color: markerColor)
-            }
-            
-            context?.restoreGState()
+            let path = CGMutablePath()
+            let xn = value.x + divider * (x-value.x)
+            let yn = value.y + divider * (y-value.y)
+            path.move(to: value)
+            path.addLine(to: CGPoint(x:xn, y:yn))
+            path.closeSubpath()
+            context?.addPath(path)
+            context?.setLineWidth(lineWidth)
+            context?.setStrokeColor(color.cgColor)
+            context?.strokePath()
         }
     }
     
-    /// Draws a single second marker on the clock face
-    func drawSecondMarker(ctx:CGContext?, x:CGFloat, y:CGFloat, radius:CGFloat, lineWidth:CGFloat, color:NSColor) {
-        let path = CGMutablePath()
-        path.move(to: CGPoint(x: radius, y: 0))
-        path.addLine(to: CGPoint(x: x, y: y))
-        path.closeSubpath()
-        ctx?.addPath(path)
-        ctx?.setLineWidth(lineWidth)
-        ctx?.setStrokeColor(color.cgColor)
-        ctx?.strokePath();
+    func drawSecondMarkersText(rect:CGRect, context: CGContext?, radius:CGFloat, sides: Int, color:NSColor) {
+        
+        // Adjust -60 degrees (i.e. 2 major ticks on the clock face)
+        let points = circleCircumferencePoints(sides: sides, circleCenter: viewCenter, radius: radius, adjustment: -60)
+        
+        var i = intervals.count-1;
+        for (index, value) in points.enumerated() {
+            if index > 0 && index % 5 == 0 {
+                let textFontAttributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: self.clockFaceText, NSAttributedStringKey.foregroundColor: self.clockFaceColor ]
+                
+                // Determine x,y for a centered display of the text
+                let text = CFAttributedStringCreate(nil, intervals[i] as CFString, textFontAttributes as CFDictionary)
+                let line = CTLineCreateWithAttributedString(text!)
+                let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.useOpticalBounds)
+                let textX = value.x - bounds.width/2
+                let textY = value.y - bounds.midY
+                
+                // Draw the text
+                intervals[i].draw(at: CGPoint(x: textX, y: textY), withAttributes: textFontAttributes)
+                i-=1
+            }
+        }
     }
     
     /// Draws the pie chart representing the remaining time.
     func drawRemainingTime(context: CGContext?) {
-        let radius = min(frame.size.width, frame.size.height) * 0.5 - marginToClockFace - roundedBorderRadius
+        let radius = min(frame.size.width, frame.size.height) * 0.4 - marginToClockFace - roundedBorderRadius
         let startAngle = CGFloat.pi / 2
         
         context?.setFillColor(timeRemainingColor.cgColor)
@@ -222,9 +283,41 @@ extension TimerView {
 
 extension TimerView {
     
-    /// Converts degrees to radian (pi * degree / 180)
+    /**
+     Converts degrees to radian (pi * degree / 180).
+     - parameter degree: Degrees to convert to radian
+     - returns: Radian of the given degree
+     */
     func degree2radian(_ degree:CGFloat)->CGFloat {
         return CGFloat(Double.pi) * degree/180
     }
     
+    
+    /**
+     Calculates equal spaced points around the circumference of the circle.
+     
+     - parameter sides: Number of points to calculate
+     - parameter circleCenter: Center point of the circle
+     - parameter radius: Radius at which to calculate the points from the circle center
+     - parameter adjustment: Degree adjustment of the points, defaults to 0 degrees
+     - returns: Array of CGPoint equally distributed around the circumferences of the circle
+     */
+    func circleCircumferencePoints(sides: Int, circleCenter:CGPoint, radius: CGFloat, adjustment:CGFloat=0) -> [CGPoint] {
+        let angle = degree2radian(Constants.fullRotation/CGFloat(sides))
+        let cx = circleCenter.x
+        let cy = circleCenter.y
+        let r = radius
+        var i = sides
+        var points = [CGPoint]()
+        
+        while points.count <= sides {
+            let xpo = cx-r * cos(angle * CGFloat(i)+degree2radian(adjustment))
+            let ypo = cy-r * sin(angle * CGFloat(i)+degree2radian(adjustment))
+            
+            points.append(CGPoint(x:xpo,y:ypo))
+            i-=1;
+        }
+        
+        return points
+    }
 }
