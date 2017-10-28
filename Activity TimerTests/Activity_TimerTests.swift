@@ -26,35 +26,35 @@ class Activity_TimerTests: XCTestCase {
     }
     
     func testActivityTimer_inited_isStoppedTrue() {
-        // 1. Arrange
+        // 1. Given
         
-        // 2. Act
+        // 2. When
         let isStopped = systemUnderTest.isStopped
         
-        // 3. Assert
+        // 3. Then
         XCTAssertTrue(isStopped, "Timer should be stopped")
     }
     
     func testActivityTimer_started_isStoppedFalse() {
-        // 1. Arrange
+        // 1. Given
         systemUnderTest.startTimer()
         
-        // 2. Act
+        // 2. When
         let isStopped = systemUnderTest.isStopped
         
-        // 3. Assert
+        // 3. Then
         XCTAssertFalse(isStopped, "Timer should not be stopped")
     }
     
     func testActivityTimer_stopped_isPausedTrue() {
-        // 1. Arrange
+        // 1. Given
         systemUnderTest.startTimer()
         systemUnderTest.stopTimer()
         
-        // 2. Act
+        // 2. When
         let isPaused = systemUnderTest.isPaused
         
-        // 3. Assert
+        // 3. Then
         XCTAssertTrue(isPaused, "Timer should be paused")
     }
 
