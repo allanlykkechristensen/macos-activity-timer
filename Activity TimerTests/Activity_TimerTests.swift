@@ -11,26 +11,51 @@ import XCTest
 
 class Activity_TimerTests: XCTestCase {
     
+    var systemUnderTest: ActivityTimer!
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        systemUnderTest = ActivityTimer()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        systemUnderTest = nil
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testActivityTimer_inited_isStoppedTrue() {
+        // 1. Arrange
+        
+        // 2. Act
+        let isStopped = systemUnderTest.isStopped
+        
+        // 3. Assert
+        XCTAssertTrue(isStopped, "Timer should be stopped")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testActivityTimer_started_isStoppedFalse() {
+        // 1. Arrange
+        systemUnderTest.startTimer()
+        
+        // 2. Act
+        let isStopped = systemUnderTest.isStopped
+        
+        // 3. Assert
+        XCTAssertFalse(isStopped, "Timer should not be stopped")
     }
     
+    func testActivityTimer_stopped_isPausedTrue() {
+        // 1. Arrange
+        systemUnderTest.startTimer()
+        systemUnderTest.stopTimer()
+        
+        // 2. Act
+        let isPaused = systemUnderTest.isPaused
+        
+        // 3. Assert
+        XCTAssertTrue(isPaused, "Timer should be paused")
+    }
+
 }

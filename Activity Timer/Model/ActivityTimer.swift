@@ -74,7 +74,6 @@ class ActivityTimer {
         
         timerAction()
     }
-    
 }
 
 protocol ActivityTimerProtocol {
