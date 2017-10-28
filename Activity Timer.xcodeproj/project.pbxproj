@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		69B12F501F8F5D1B0034634D /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B12F4F1F8F5D1B0034634D /* TimerView.swift */; };
-		69B12F571F8F63490034634D /* NSColor+ActivityTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B12F561F8F63490034634D /* NSColor+ActivityTimer.swift */; };
 		69C03FB01F91235500BFE289 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69C03FAF1F91235000BFE289 /* alarm.wav */; };
 		69C8D7441F8902AF00976460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7431F8902AF00976460 /* AppDelegate.swift */; };
 		69C8D7461F8902AF00976460 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7451F8902AF00976460 /* ViewController.swift */; };
@@ -35,7 +34,6 @@
 		694381471F8F8675006E34A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6978E6A31F92C2FD00FFE27E /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		69B12F4F1F8F5D1B0034634D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		69B12F561F8F63490034634D /* NSColor+ActivityTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+ActivityTimer.swift"; sourceTree = "<group>"; };
 		69C03FAF1F91235000BFE289 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		69C8D7401F8902AF00976460 /* Activity Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Activity Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C8D7431F8902AF00976460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,14 +85,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		69B12F551F8F63240034634D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				69B12F561F8F63490034634D /* NSColor+ActivityTimer.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		69C8D7371F8902AF00976460 = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +111,6 @@
 				69C8D7431F8902AF00976460 /* AppDelegate.swift */,
 				69C03FAF1F91235000BFE289 /* alarm.wav */,
 				69C8D7471F8902AF00976460 /* Assets.xcassets */,
-				69B12F551F8F63240034634D /* Extensions */,
 				69C8D7491F8902AF00976460 /* Main.storyboard */,
 				69C8D7651F8948A500976460 /* Model */,
 				69C8D7641F89489C00976460 /* Supporting Files */,
@@ -273,7 +262,6 @@
 				69B12F501F8F5D1B0034634D /* TimerView.swift in Sources */,
 				69C8D7671F8948DC00976460 /* ActivityTimer.swift in Sources */,
 				69C8D7461F8902AF00976460 /* ViewController.swift in Sources */,
-				69B12F571F8F63490034634D /* NSColor+ActivityTimer.swift in Sources */,
 				69C8D7691F89711100976460 /* Preferences.swift in Sources */,
 				69C8D7621F89364900976460 /* PrefsViewController.swift in Sources */,
 				69C8D7441F8902AF00976460 /* AppDelegate.swift in Sources */,

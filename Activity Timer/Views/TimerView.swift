@@ -70,7 +70,7 @@ import AppKit
     @IBInspectable var roundedBorderColor: NSColor = NSColor.black
     @IBInspectable var roundedBorderThickness: CGFloat = 10
     @IBInspectable var roundedBorderRadius: CGFloat = 40
-    @IBInspectable var timeRemainingColor: NSColor = NSColor.pieChartTimeRemainingFillColor
+    @IBInspectable var timeRemainingColor: NSColor = NSColor.red
     
     // MARK: - Clock hand properties
     
