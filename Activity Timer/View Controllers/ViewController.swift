@@ -9,15 +9,17 @@
 import Cocoa
 import AVFoundation
 
-
 class ViewController: NSViewController {
 
     @IBOutlet weak var timerView: TimerView!
     @IBOutlet weak var timeLeftButton: NSButton!
-    var activityTimer = ActivityTimer()
-    var prefs = Preferences()
+    
     var soundPlayer: AVAudioPlayer?
     var started = false
+    /// Reference to model: Activity Timer
+    var activityTimer = ActivityTimer()
+    /// Reference to model: Preferences
+    var prefs = Preferences()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,11 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+}
 
-    // MARK: - Button Actions
+// MARK: - Event Handlers
+extension ViewController {
+    
     @IBAction func timerClicked(_ sender: NSButton) {
         if !started {
             started = true
@@ -43,7 +48,6 @@ class ViewController: NSViewController {
         }
     }
     
-    // MARK: - Menu Selection
     @IBAction func startTimerMenuItemSelected(_ sender: Any) {
         started = true
         startTimer()
@@ -91,7 +95,7 @@ extension ViewController {
 }
 
 
-// MARK: - Activity Timer Protocol
+// MARK: - Model Notify: Activity Timer Protocol
 extension ViewController : ActivityTimerProtocol {
     func timeRemainingOnTimer(_ timer: ActivityTimer, timeRemaining: TimeInterval) {
         updateDisplay(for: timeRemaining)
