@@ -33,7 +33,7 @@
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "timer-256.png",
+      "filename" : "activity-timer-app-icon-x1.png",
       "scale" : "1x"
     },
     {
@@ -42,8 +42,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "mac",
       "size" : "512x512",
+      "idiom" : "mac",
+      "filename" : "activity-timer-app-icon.png",
       "scale" : "1x"
     },
     {
