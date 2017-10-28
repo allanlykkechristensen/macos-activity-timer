@@ -98,10 +98,10 @@
 		69C8D7371F8902AF00976460 = {
 			isa = PBXGroup;
 			children = (
-				6978E6A21F92C2B900FFE27E /* Docs */,
 				694381471F8F8675006E34A6 /* README.md */,
 				69C8D7421F8902AF00976460 /* Activity Timer */,
 				69C8D7551F8902AF00976460 /* Activity TimerTests */,
+				6978E6A21F92C2B900FFE27E /* Docs */,
 				69C8D7411F8902AF00976460 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,15 +118,15 @@
 		69C8D7421F8902AF00976460 /* Activity Timer */ = {
 			isa = PBXGroup;
 			children = (
-				69B12F551F8F63240034634D /* Extensions */,
-				69B12F4E1F8F5CB90034634D /* Views */,
-				69C8D7651F8948A500976460 /* Model */,
 				69C8D7431F8902AF00976460 /* AppDelegate.swift */,
-				69C8D7631F89487D00976460 /* View Controllers */,
-				69C8D7471F8902AF00976460 /* Assets.xcassets */,
-				69C8D7491F8902AF00976460 /* Main.storyboard */,
 				69C03FAF1F91235000BFE289 /* alarm.wav */,
+				69C8D7471F8902AF00976460 /* Assets.xcassets */,
+				69B12F551F8F63240034634D /* Extensions */,
+				69C8D7491F8902AF00976460 /* Main.storyboard */,
+				69C8D7651F8948A500976460 /* Model */,
 				69C8D7641F89489C00976460 /* Supporting Files */,
+				69C8D7631F89487D00976460 /* View Controllers */,
+				69B12F4E1F8F5CB90034634D /* Views */,
 			);
 			path = "Activity Timer";
 			sourceTree = "<group>";
