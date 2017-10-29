@@ -10,7 +10,7 @@ import Cocoa
 import AppKit
 
 /// ⏰ TimerView is a custom view containing the rendering of the pie chart representing the spent and remaining time.
-@IBDesignable class TimerView : NSView {
+@IBDesignable class ActivityTimerView : NSView {
     
     enum Constants {
         /// Circumference of a perimeter
@@ -133,7 +133,7 @@ import AppKit
 
 // MARK: - Drawing Extension
 
-extension TimerView {
+extension ActivityTimerView {
     
     /// Draws the clock hand consisting of a fat dot in the middle with the state of the timer (started/paused) and with a line potining in the direction of the time remaining.
     func drawClockHand(context: CGContext?) {
@@ -283,7 +283,7 @@ extension TimerView {
 
 // MARK: - Calculations Extension
 
-extension TimerView {
+extension ActivityTimerView {
     
     /**
      Converts degrees to radian (pi * degree / 180).

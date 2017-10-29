@@ -292,10 +292,10 @@ Gw
             </objects>
             <point key="canvasLocation" x="-315" y="301"/>
         </scene>
-        <!--View Controller-->
+        <!--Activity Timer View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Activity_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ActivityTimerViewController" customModule="Activity_Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="561" height="610"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +303,7 @@ Gw
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbj-sP-D2I">
                                 <rect key="frame" x="0.0" y="0.0" width="561" height="610"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLW-UW-v4M" customClass="TimerView" customModule="Activity_Timer" customModuleProvider="target">
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLW-UW-v4M" customClass="ActivityTimerView" customModule="Activity_Timer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="561" height="610"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6H-ol-ypi">

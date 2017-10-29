@@ -9,7 +9,7 @@
 import Foundation
 
 /// Model representing the actual timer contain the start time, duration and elapsed time. It also contains notifies the delegates when the timer has finished and when it is updated.
-class ActivityTimer {
+class ActivityTimerModel {
 
     var delegate: ActivityTimerProtocol?
     var timer: Timer? = nil
@@ -77,6 +77,6 @@ class ActivityTimer {
 }
 
 protocol ActivityTimerProtocol {
-    func timeRemainingOnTimer(_ timer: ActivityTimer, timeRemaining: TimeInterval)
-    func timerHasFinished(_ timer: ActivityTimer)
+    func timeRemainingOnTimer(_ timer: ActivityTimerModel, timeRemaining: TimeInterval)
+    func timerHasFinished(_ timer: ActivityTimerModel)
 }

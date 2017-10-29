@@ -9,15 +9,15 @@
 import Cocoa
 import AVFoundation
 
-class ViewController: NSViewController {
+class ActivityTimerViewController: NSViewController {
 
-    @IBOutlet weak var timerView: TimerView!
+    @IBOutlet weak var timerView: ActivityTimerView!
     @IBOutlet weak var timeLeftButton: NSButton!
     
     var soundPlayer: AVAudioPlayer?
     var started = false
     /// Reference to model: Activity Timer
-    var activityTimer = ActivityTimer()
+    var activityTimer = ActivityTimerModel()
     /// Reference to model: Preferences
     var prefs = PreferencesModel()
     
@@ -36,7 +36,7 @@ class ViewController: NSViewController {
 }
 
 // MARK: - Event Handlers
-extension ViewController {
+extension ActivityTimerViewController {
 
     @IBAction func restartClicked(_ sender: Any) {
         started = false;
@@ -71,7 +71,7 @@ extension ViewController {
 }
 
 // MARK: - Activity Timer Methods
-extension ViewController {
+extension ActivityTimerViewController {
     
     func startTimer() {
         timerView.started = true
@@ -101,19 +101,19 @@ extension ViewController {
 
 
 // MARK: - Model Notify: Activity Timer Protocol
-extension ViewController : ActivityTimerProtocol {
-    func timeRemainingOnTimer(_ timer: ActivityTimer, timeRemaining: TimeInterval) {
+extension ActivityTimerViewController : ActivityTimerProtocol {
+    func timeRemainingOnTimer(_ timer: ActivityTimerModel, timeRemaining: TimeInterval) {
         updateDisplay(for: timeRemaining)
     }
     
-    func timerHasFinished(_ timer: ActivityTimer) {
+    func timerHasFinished(_ timer: ActivityTimerModel) {
         timerView.started = false
         updateDisplay(for: 0)
         playSound()
     }
 }
 
-extension ViewController {
+extension ActivityTimerViewController {
     func updateDisplay(for timeRemaining: TimeInterval) {
         
         // FIXME: Don't like to have the font values here - at least store them as a constant somewhere.
@@ -160,7 +160,7 @@ extension ViewController {
 }
 
 // MARK: - Preferences
-extension ViewController {
+extension ActivityTimerViewController {
     func setupPrefs() {
         let notificationName = Notification.Name(rawValue: "PrefsChanged")
         NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) {
@@ -197,7 +197,7 @@ extension ViewController {
 }
 
 // MARK: - Sound
-extension ViewController {
+extension ActivityTimerViewController {
     
     func prepareSound() {
         guard let audioFileUrl = Bundle.main.url(forResource: "alarm", withExtension: "wav") else {
