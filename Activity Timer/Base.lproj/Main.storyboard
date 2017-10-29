@@ -327,9 +327,25 @@ Gw
                                                     <segue destination="bOh-gy-mgF" kind="show" id="lhy-fJ-woE"/>
                                                 </connections>
                                             </button>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="SEP-8w-xcS">
+                                                <rect key="frame" x="489" y="538" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="WRL-gq-0NO"/>
+                                                    <constraint firstAttribute="width" constant="32" id="rg7-xH-3Wr"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Lps-pA-Tod">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="restartClicked:" target="XfG-lQ-9wD" id="7TR-4T-I3c"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="SEP-8w-xcS" secondAttribute="trailing" constant="40" id="Eoc-0c-H3p"/>
                                             <constraint firstAttribute="bottom" secondItem="Xib-EZ-U6e" secondAttribute="bottom" constant="40" id="IdH-qj-1F6"/>
+                                            <constraint firstItem="SEP-8w-xcS" firstAttribute="top" secondItem="jLW-UW-v4M" secondAttribute="top" constant="40" id="MbS-8B-CBI"/>
                                             <constraint firstAttribute="trailing" secondItem="Xib-EZ-U6e" secondAttribute="trailing" constant="40" id="w9k-VU-mV6"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -391,10 +407,11 @@ Gw
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-315.5" y="1104"/>
+            <point key="canvasLocation" x="-320.5" y="1127"/>
         </scene>
     </scenes>
     <resources>
+        <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="buttonCell:jsQ-vi-TWu:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI

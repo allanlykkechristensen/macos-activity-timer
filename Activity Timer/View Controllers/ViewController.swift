@@ -37,6 +37,11 @@ class ViewController: NSViewController {
 
 // MARK: - Event Handlers
 extension ViewController {
+
+    @IBAction func restartClicked(_ sender: Any) {
+        started = false;
+        resetTimer()
+    }
     
     @IBAction func timerClicked(_ sender: NSButton) {
         if !started {
