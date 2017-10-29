@@ -157,16 +157,17 @@ extension ViewController {
 // MARK: - Preferences
 extension ViewController {
     func setupPrefs() {
-        updateDisplay(for: prefs.selectedTime)
-        
         let notificationName = Notification.Name(rawValue: "PrefsChanged")
         NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) {
             (notification) in self.checkForResetAfterPrefsChange()
         }
+        updateFromPrefs()
     }
     
     func updateFromPrefs() {
+        updateDisplay(for: prefs.selectedTime)
         self.activityTimer.duration = self.prefs.selectedTime
+        timerView.timeRemainingColor = self.prefs.selectedTimerColor
         resetTimer()
     }
     

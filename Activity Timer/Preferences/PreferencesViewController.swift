@@ -44,11 +44,13 @@ class PreferencesViewController: NSViewController {
         durationHours.selectItem(withTag: prefs.selectedHours)
         durationMinutes.selectItem(withTag: prefs.selectedMinutes)
         durationSeconds.selectItem(withTag: prefs.selectedSeconds)
+        timerColor.color = prefs.selectedTimerColor
     }
     
     func savePreferences() {
         let totalTime = durationSeconds.selectedItem!.tag + (durationMinutes.selectedItem!.tag * 60) + (durationHours.selectedItem!.tag * 60 * 60)
         prefs.selectedTime = Double(totalTime)
+        prefs.selectedTimerColor = timerColor.color
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "PrefsChanged") , object: nil)
     }

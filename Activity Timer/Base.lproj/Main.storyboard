@@ -202,15 +202,15 @@ DQ
                                     <action selector="okClicked:" target="cwe-aj-NSW" id="n4F-eh-b3g"/>
                                 </connections>
                             </button>
-                            <colorWell hidden="YES" fixedFrame="YES" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F6-3J-gog">
+                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1F6-3J-gog">
                                 <rect key="frame" x="18" y="95" width="44" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </colorWell>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-Kv-FnD">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-Kv-FnD">
                                 <rect key="frame" x="17" y="122" width="159" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Color:" id="bmg-U2-9Kg">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Timer Color:" id="bmg-U2-9Kg">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
