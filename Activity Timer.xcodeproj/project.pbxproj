@@ -82,13 +82,13 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
-		6978E6A21F92C2B900FFE27E /* Docs */ = {
+		6978E6A21F92C2B900FFE27E /* Documents */ = {
 			isa = PBXGroup;
 			children = (
 				694094CA1F97DDE500954E6A /* screenshot-20171018.png */,
 				6978E6A31F92C2FD00FFE27E /* screenshot.png */,
 			);
-			path = Docs;
+			path = Documents;
 			sourceTree = "<group>";
 		};
 		69B5EE051FA66BD100854320 /* Timer */ = {
@@ -107,7 +107,7 @@
 				694381471F8F8675006E34A6 /* README.md */,
 				69C8D7421F8902AF00976460 /* Activity Timer */,
 				69C8D7551F8902AF00976460 /* Activity TimerTests */,
-				6978E6A21F92C2B900FFE27E /* Docs */,
+				6978E6A21F92C2B900FFE27E /* Documents */,
 				69C8D7411F8902AF00976460 /* Products */,
 			);
 			sourceTree = "<group>";
