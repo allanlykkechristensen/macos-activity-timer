@@ -157,65 +157,23 @@
             </objects>
             <point key="canvasLocation" x="418" y="469"/>
         </scene>
-        <!--Prefs View Controller-->
+        <!--Preferences View Controller-->
         <scene sceneID="jSx-Wv-lfD">
             <objects>
-                <viewController id="cwe-aj-NSW" customClass="PrefsViewController" customModule="Activity_Timer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="xaG-hR-BgE">
+                <viewController id="cwe-aj-NSW" customClass="PreferencesViewController" customModule="Activity_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="xaG-hR-BgE" customClass="PreferencesView" customModule="Activity_Timer" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="416" height="214"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNZ-i4-2pl">
-                                <rect key="frame" x="18" y="177" width="107" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Preset Timings:" id="Nt6-Un-HS6">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iV8-eR-shB">
-                                <rect key="frame" x="18" y="113" width="159" height="17"/>
+                                <rect key="frame" x="17" y="177" width="159" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Custom Timings:" id="7hi-Sd-8do">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Duration:" id="7hi-Sd-8do">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMb-bF-uUf">
-                                <rect key="frame" x="18" y="145" width="381" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="Design Sprint Monday: Long term goal and Sprint Questions (75 mins)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="75" imageScaling="proportionallyDown" inset="2" selectedItem="UYs-9p-REe" id="pxs-Qv-dO9">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="u31-Jf-mZJ">
-                                        <items>
-                                            <menuItem title="Design Sprint Monday: Long term goal and Sprint Questions (75 mins)" state="on" tag="75" id="UYs-9p-REe"/>
-                                            <menuItem title="Design Sprint Monday: Make a map (90 mins)" tag="90" id="5wq-0e-t0W"/>
-                                            <menuItem title="Design Sprint Monday: Pick a target (30 mins)" tag="30" id="dTZ-qa-i2q"/>
-                                            <menuItem title="1 min" tag="1" id="YWU-Nv-QuA">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem isSeparatorItem="YES" id="SNf-Qb-DA6"/>
-                                            <menuItem title="Custom" id="PfV-GW-APQ">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="popupValueChanged:" target="cwe-aj-NSW" id="5uf-7H-6s0"/>
-                                </connections>
-                            </popUpButton>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wj1-DE-a5S">
-                                <rect key="frame" x="18" y="88" width="380" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="180" tickMarkPosition="above" numberOfTickMarks="60" sliderType="linear" id="EPW-hu-zNS"/>
-                                <connections>
-                                    <action selector="customTimingChanged:" target="cwe-aj-NSW" id="4L9-1i-qFo"/>
-                                </connections>
-                            </slider>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ttd-CA-hTI">
                                 <rect key="frame" x="14" y="13" width="81" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -244,21 +202,69 @@ DQ
                                     <action selector="okClicked:" target="cwe-aj-NSW" id="n4F-eh-b3g"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GC5-WM-auE">
-                                <rect key="frame" x="128" y="113" width="270" height="17"/>
+                            <colorWell hidden="YES" fixedFrame="YES" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1F6-3J-gog">
+                                <rect key="frame" x="18" y="95" width="44" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="6 minutes" id="6wH-N5-zNW">
+                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </colorWell>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-Kv-FnD">
+                                <rect key="frame" x="17" y="122" width="159" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="Color:" id="bmg-U2-9Kg">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F0J-Vv-c8o">
+                                <rect key="frame" x="18" y="144" width="100" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="oQ2-24-NkX">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="0ix-Ph-X4A"/>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-W7-mpF">
+                                <rect key="frame" x="121" y="144" width="116" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="R8g-Yt-hlQ">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="pil-Qy-CBk"/>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GTe-bh-id5">
+                                <rect key="frame" x="240" y="144" width="121" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="9At-hv-3za">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="GKa-Ev-BY6"/>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-2g-Dox">
+                                <rect key="frame" x="95" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c5L-JV-XwP">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resetClicked:" target="cwe-aj-NSW" id="6Zb-Cd-pSc"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="customTimingLabel" destination="GC5-WM-auE" id="TDR-HA-1nr"/>
-                        <outlet property="customTimingsSlider" destination="Wj1-DE-a5S" id="caI-SB-U2s"/>
-                        <outlet property="presetPopup" destination="GMb-bF-uUf" id="aWm-DJ-OW6"/>
+                        <outlet property="durationHours" destination="F0J-Vv-c8o" id="bUh-mY-t69"/>
+                        <outlet property="durationMinutes" destination="TCb-W7-mpF" id="wpE-NH-XFh"/>
+                        <outlet property="durationSeconds" destination="GTe-bh-id5" id="5XD-OZ-VhG"/>
+                        <outlet property="preferencesView" destination="xaG-hR-BgE" id="PhQ-uh-XWM"/>
+                        <outlet property="timerColor" destination="1F6-3J-gog" id="M0D-KN-2hJ"/>
                     </connections>
                 </viewController>
                 <customObject id="gQq-dV-z12" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

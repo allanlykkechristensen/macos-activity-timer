@@ -33,7 +33,7 @@ import AppKit
         didSet {
             self.intervals = [String]()
             let minutesRemaining = floor(totalTime / 60)
-            let secondsRemaining = floor(minutesRemaining * 60)
+            let secondsRemaining = floor(minutesRemaining * 60)+totalTime.truncatingRemainder(dividingBy: 60.0)
             let numbersToDisplay = 12
             
             let steps = secondsRemaining/Double(numbersToDisplay)

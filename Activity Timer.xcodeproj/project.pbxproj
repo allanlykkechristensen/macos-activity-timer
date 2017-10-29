@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690164371FA549AD00CAFC04 /* PreferencesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690164361FA549AD00CAFC04 /* PreferencesModelTests.swift */; };
+		6994325B1FA60179004D7E44 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6994325A1FA60179004D7E44 /* PreferencesView.swift */; };
 		69B12F501F8F5D1B0034634D /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B12F4F1F8F5D1B0034634D /* TimerView.swift */; };
 		69C03FB01F91235500BFE289 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69C03FAF1F91235000BFE289 /* alarm.wav */; };
 		69C8D7441F8902AF00976460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7431F8902AF00976460 /* AppDelegate.swift */; };
@@ -14,9 +16,9 @@
 		69C8D7481F8902AF00976460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69C8D7471F8902AF00976460 /* Assets.xcassets */; };
 		69C8D74B1F8902AF00976460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69C8D7491F8902AF00976460 /* Main.storyboard */; };
 		69C8D7571F8902AF00976460 /* Activity_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7561F8902AF00976460 /* Activity_TimerTests.swift */; };
-		69C8D7621F89364900976460 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7611F89364900976460 /* PrefsViewController.swift */; };
+		69C8D7621F89364900976460 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7611F89364900976460 /* PreferencesViewController.swift */; };
 		69C8D7671F8948DC00976460 /* ActivityTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7661F8948DC00976460 /* ActivityTimer.swift */; };
-		69C8D7691F89711100976460 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7681F89711100976460 /* Preferences.swift */; };
+		69C8D7691F89711100976460 /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7681F89711100976460 /* PreferencesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		690164361FA549AD00CAFC04 /* PreferencesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModelTests.swift; sourceTree = "<group>"; };
 		694094CA1F97DDE500954E6A /* screenshot-20171018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screenshot-20171018.png"; sourceTree = "<group>"; };
 		694381471F8F8675006E34A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6978E6A31F92C2FD00FFE27E /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+		6994325A1FA60179004D7E44 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		69B12F4F1F8F5D1B0034634D /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		69C03FAF1F91235000BFE289 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		69C8D7401F8902AF00976460 /* Activity Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Activity Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,9 +49,9 @@
 		69C8D7521F8902AF00976460 /* Activity TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Activity TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C8D7561F8902AF00976460 /* Activity_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity_TimerTests.swift; sourceTree = "<group>"; };
 		69C8D7581F8902AF00976460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69C8D7611F89364900976460 /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
+		69C8D7611F89364900976460 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		69C8D7661F8948DC00976460 /* ActivityTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTimer.swift; sourceTree = "<group>"; };
-		69C8D7681F89711100976460 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		69C8D7681F89711100976460 /* PreferencesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		690164351FA5460600CAFC04 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				69C8D7681F89711100976460 /* PreferencesModel.swift */,
+				69C8D7611F89364900976460 /* PreferencesViewController.swift */,
+				6994325A1FA60179004D7E44 /* PreferencesView.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		6978E6A21F92C2B900FFE27E /* Docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +122,7 @@
 		69C8D7421F8902AF00976460 /* Activity Timer */ = {
 			isa = PBXGroup;
 			children = (
+				690164351FA5460600CAFC04 /* Preferences */,
 				69C8D7431F8902AF00976460 /* AppDelegate.swift */,
 				69C03FAF1F91235000BFE289 /* alarm.wav */,
 				69C8D7471F8902AF00976460 /* Assets.xcassets */,
@@ -125,6 +140,7 @@
 			children = (
 				69C8D7561F8902AF00976460 /* Activity_TimerTests.swift */,
 				69C8D7581F8902AF00976460 /* Info.plist */,
+				690164361FA549AD00CAFC04 /* PreferencesModelTests.swift */,
 			);
 			path = "Activity TimerTests";
 			sourceTree = "<group>";
@@ -133,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				69C8D7451F8902AF00976460 /* ViewController.swift */,
-				69C8D7611F89364900976460 /* PrefsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -151,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				69C8D7661F8948DC00976460 /* ActivityTimer.swift */,
-				69C8D7681F89711100976460 /* Preferences.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,9 +276,10 @@
 				69B12F501F8F5D1B0034634D /* TimerView.swift in Sources */,
 				69C8D7671F8948DC00976460 /* ActivityTimer.swift in Sources */,
 				69C8D7461F8902AF00976460 /* ViewController.swift in Sources */,
-				69C8D7691F89711100976460 /* Preferences.swift in Sources */,
-				69C8D7621F89364900976460 /* PrefsViewController.swift in Sources */,
+				69C8D7691F89711100976460 /* PreferencesModel.swift in Sources */,
+				69C8D7621F89364900976460 /* PreferencesViewController.swift in Sources */,
 				69C8D7441F8902AF00976460 /* AppDelegate.swift in Sources */,
+				6994325B1FA60179004D7E44 /* PreferencesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690164371FA549AD00CAFC04 /* PreferencesModelTests.swift in Sources */,
 				69C8D7571F8902AF00976460 /* Activity_TimerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

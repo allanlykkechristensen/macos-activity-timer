@@ -19,7 +19,7 @@ class ViewController: NSViewController {
     /// Reference to model: Activity Timer
     var activityTimer = ActivityTimer()
     /// Reference to model: Preferences
-    var prefs = Preferences()
+    var prefs = PreferencesModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
