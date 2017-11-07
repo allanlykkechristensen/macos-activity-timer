@@ -32,4 +32,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Assets
 
-The alarm sound is created by bone666138 available at <https://freesound.org/people/bone666138/sounds/198841/> under the Creative Commons  license.
+* The default clicking sound created by TicTapShutUp available at <https://freesound.org/s/406/> under the Creative Commons license.
+* The default alarm sound is created by bone666138 available at <https://freesound.org/people/bone666138/sounds/198841/> under the Creative Commons  license.
+* The default reset sound is created by Goup_1 available at <https://freesound.org/s/171148/> under the Creative Commons license.
+

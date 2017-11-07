@@ -19,6 +19,7 @@ class PreferencesModel {
         case firstTimeLaunch = "firstTimeLaunch"
         case selectedTime = "selectedTime"
         case selectedTimerColor = "selectedTimerColor"
+        case selectedAlarm = "selectedAlarm"
     }
     
     init() {
@@ -61,6 +62,25 @@ class PreferencesModel {
             // Encode color to be savable in UserDefaults
             let data : Data = NSKeyedArchiver.archivedData(withRootObject: newValue)
             UserDefaults.standard.set(data, forKey: PreferenceKey.selectedTimerColor.rawValue)
+        }
+    }
+
+    /// Property containing the URL of the Alarm sound
+    var selectedAlarmSound : String {
+        get {
+            if let alarmSoundUrl = UserDefaults.standard.string(forKey: PreferenceKey.selectedAlarm.rawValue) {
+                return alarmSoundUrl
+            } else {
+                if let defaultAlarmSoundUrl = Bundle.main.url(forResource: "alarm", withExtension: "wav") {
+                return defaultAlarmSoundUrl.absoluteString
+                } else {
+                    return ""
+                }
+            }
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: PreferenceKey.selectedAlarm.rawValue)
         }
     }
 

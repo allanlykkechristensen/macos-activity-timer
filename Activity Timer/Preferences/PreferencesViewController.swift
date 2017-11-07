@@ -15,6 +15,7 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var durationHours: NSPopUpButton!
     @IBOutlet weak var durationMinutes: NSPopUpButton!
     @IBOutlet weak var durationSeconds: NSPopUpButton!
+    @IBOutlet weak var alarmSoundUrl: NSTextField!
     
     var prefs = PreferencesModel()
     
@@ -25,6 +26,22 @@ class PreferencesViewController: NSViewController {
     }
     
     // MARK: Event Handlers
+    
+    @IBAction func alarmSoundSelectClicked(_ sender: Any) {
+        guard let window = view.window else { return }
+        
+        let dialog = NSOpenPanel()
+        dialog.title = "Choose the sound file to play when time is up"
+        dialog.canChooseDirectories = false
+        dialog.allowsMultipleSelection = false
+        dialog.allowedFileTypes = ["wav", "mp3", "aac", "adts", "ac3", "aif", "aiff", "aifc", "caf", "mp4", "m4a", "snd", "au", "sd2"]
+        
+        dialog.beginSheetModal(for: window) { (result) in
+            if result == .OK {
+                self.alarmSoundUrl.stringValue = (dialog.url?.absoluteString)!
+            }
+        }
+    }
     
     @IBAction func cancelClicked(_ sender: Any) {
         view.window?.close()
@@ -45,12 +62,14 @@ class PreferencesViewController: NSViewController {
         durationMinutes.selectItem(withTag: prefs.selectedMinutes)
         durationSeconds.selectItem(withTag: prefs.selectedSeconds)
         timerColor.color = prefs.selectedTimerColor
+        alarmSoundUrl.stringValue = prefs.selectedAlarmSound
     }
     
     func savePreferences() {
         let totalTime = durationSeconds.selectedItem!.tag + (durationMinutes.selectedItem!.tag * 60) + (durationHours.selectedItem!.tag * 60 * 60)
         prefs.selectedTime = Double(totalTime)
         prefs.selectedTimerColor = timerColor.color
+        prefs.selectedAlarmSound = alarmSoundUrl.stringValue
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "PrefsChanged") , object: nil)
     }

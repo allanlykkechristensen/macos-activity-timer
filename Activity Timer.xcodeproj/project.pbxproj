@@ -19,6 +19,8 @@
 		69C8D7621F89364900976460 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7611F89364900976460 /* PreferencesViewController.swift */; };
 		69C8D7671F8948DC00976460 /* ActivityTimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7661F8948DC00976460 /* ActivityTimerModel.swift */; };
 		69C8D7691F89711100976460 /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7681F89711100976460 /* PreferencesModel.swift */; };
+		69E69ABF1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69E69ABE1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav */; };
+		69E69AC11FB1CBF90012A417 /* 171148__goup-1__click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69E69AC01FB1CBF90012A417 /* 171148__goup-1__click.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		69C8D7611F89364900976460 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		69C8D7661F8948DC00976460 /* ActivityTimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTimerModel.swift; sourceTree = "<group>"; };
 		69C8D7681F89711100976460 /* PreferencesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesModel.swift; sourceTree = "<group>"; };
+		69E69ABE1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "406__tictacshutup__click-1-d.wav"; sourceTree = "<group>"; };
+		69E69AC01FB1CBF90012A417 /* 171148__goup-1__click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "171148__goup-1__click.wav"; sourceTree = "<group>"; };
+		69E69AC21FB1DB050012A417 /* Activity Timer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Activity Timer.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +129,13 @@
 		69C8D7421F8902AF00976460 /* Activity Timer */ = {
 			isa = PBXGroup;
 			children = (
+				69E69AC21FB1DB050012A417 /* Activity Timer.entitlements */,
 				69B5EE051FA66BD100854320 /* Timer */,
 				690164351FA5460600CAFC04 /* Preferences */,
 				69C8D7431F8902AF00976460 /* AppDelegate.swift */,
 				69C03FAF1F91235000BFE289 /* alarm.wav */,
+				69E69ABE1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav */,
+				69E69AC01FB1CBF90012A417 /* 171148__goup-1__click.wav */,
 				69C8D7471F8902AF00976460 /* Assets.xcassets */,
 				69C8D7491F8902AF00976460 /* Main.storyboard */,
 				69C8D7641F89489C00976460 /* Supporting Files */,
@@ -237,6 +245,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E69ABF1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav in Resources */,
+				69E69AC11FB1CBF90012A417 /* 171148__goup-1__click.wav in Resources */,
 				69C8D7481F8902AF00976460 /* Assets.xcassets in Resources */,
 				69C8D74B1F8902AF00976460 /* Main.storyboard in Resources */,
 				69C03FB01F91235500BFE289 /* alarm.wav in Resources */,
@@ -408,7 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Activity Timer/Supporting Files/Activity_Timer.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Activity Timer/Activity Timer.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -426,7 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Activity Timer/Supporting Files/Activity_Timer.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Activity Timer/Activity Timer.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
