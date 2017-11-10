@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		690164371FA549AD00CAFC04 /* PreferencesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690164361FA549AD00CAFC04 /* PreferencesModelTests.swift */; };
+		697B119B1FB5A42B00CCA8EA /* NSColor+ActivityTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B119A1FB5A42B00CCA8EA /* NSColor+ActivityTimer.swift */; };
 		6994325B1FA60179004D7E44 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6994325A1FA60179004D7E44 /* PreferencesView.swift */; };
 		69B12F501F8F5D1B0034634D /* ActivityTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B12F4F1F8F5D1B0034634D /* ActivityTimerView.swift */; };
 		69C03FB01F91235500BFE289 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69C03FAF1F91235000BFE289 /* alarm.wav */; };
@@ -21,6 +22,10 @@
 		69C8D7691F89711100976460 /* PreferencesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8D7681F89711100976460 /* PreferencesModel.swift */; };
 		69E69ABF1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69E69ABE1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav */; };
 		69E69AC11FB1CBF90012A417 /* 171148__goup-1__click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69E69AC01FB1CBF90012A417 /* 171148__goup-1__click.wav */; };
+		69E71AF41FB4A2E400F951BD /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E71AF01FB4A2E300F951BD /* red.png */; };
+		69E71AF51FB4A2E400F951BD /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E71AF11FB4A2E300F951BD /* blue.png */; };
+		69E71AF61FB4A2E400F951BD /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E71AF21FB4A2E300F951BD /* yellow.png */; };
+		69E71AF71FB4A2E400F951BD /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E71AF31FB4A2E300F951BD /* green.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,7 @@
 		694094CA1F97DDE500954E6A /* screenshot-20171018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screenshot-20171018.png"; sourceTree = "<group>"; };
 		694381471F8F8675006E34A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6978E6A31F92C2FD00FFE27E /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+		697B119A1FB5A42B00CCA8EA /* NSColor+ActivityTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+ActivityTimer.swift"; sourceTree = "<group>"; };
 		6994325A1FA60179004D7E44 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		69B12F4F1F8F5D1B0034634D /* ActivityTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTimerView.swift; sourceTree = "<group>"; };
 		69C03FAF1F91235000BFE289 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
@@ -57,6 +63,10 @@
 		69E69ABE1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "406__tictacshutup__click-1-d.wav"; sourceTree = "<group>"; };
 		69E69AC01FB1CBF90012A417 /* 171148__goup-1__click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "171148__goup-1__click.wav"; sourceTree = "<group>"; };
 		69E69AC21FB1DB050012A417 /* Activity Timer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Activity Timer.entitlements"; sourceTree = "<group>"; };
+		69E71AF01FB4A2E300F951BD /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		69E71AF11FB4A2E300F951BD /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		69E71AF21FB4A2E300F951BD /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		69E71AF31FB4A2E300F951BD /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,14 @@
 			path = docs;
 			sourceTree = "<group>";
 		};
+		697B11991FB5A40400CCA8EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				697B119A1FB5A42B00CCA8EA /* NSColor+ActivityTimer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		69B5EE051FA66BD100854320 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +147,7 @@
 		69C8D7421F8902AF00976460 /* Activity Timer */ = {
 			isa = PBXGroup;
 			children = (
+				697B11991FB5A40400CCA8EA /* Extensions */,
 				69E69AC21FB1DB050012A417 /* Activity Timer.entitlements */,
 				69B5EE051FA66BD100854320 /* Timer */,
 				690164351FA5460600CAFC04 /* Preferences */,
@@ -156,6 +175,10 @@
 		69C8D7641F89489C00976460 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				69E71AF11FB4A2E300F951BD /* blue.png */,
+				69E71AF31FB4A2E300F951BD /* green.png */,
+				69E71AF01FB4A2E300F951BD /* red.png */,
+				69E71AF21FB4A2E300F951BD /* yellow.png */,
 				69C8D74C1F8902AF00976460 /* Info.plist */,
 				69C8D74D1F8902AF00976460 /* Activity_Timer.entitlements */,
 			);
@@ -246,9 +269,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E69ABF1FB1B2E10012A417 /* 406__tictacshutup__click-1-d.wav in Resources */,
+				69E71AF61FB4A2E400F951BD /* yellow.png in Resources */,
 				69E69AC11FB1CBF90012A417 /* 171148__goup-1__click.wav in Resources */,
+				69E71AF71FB4A2E400F951BD /* green.png in Resources */,
 				69C8D7481F8902AF00976460 /* Assets.xcassets in Resources */,
+				69E71AF41FB4A2E400F951BD /* red.png in Resources */,
 				69C8D74B1F8902AF00976460 /* Main.storyboard in Resources */,
+				69E71AF51FB4A2E400F951BD /* blue.png in Resources */,
 				69C03FB01F91235500BFE289 /* alarm.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +299,7 @@
 				69C8D7461F8902AF00976460 /* ActivityTimerViewController.swift in Sources */,
 				69C8D7691F89711100976460 /* PreferencesModel.swift in Sources */,
 				69C8D7621F89364900976460 /* PreferencesViewController.swift in Sources */,
+				697B119B1FB5A42B00CCA8EA /* NSColor+ActivityTimer.swift in Sources */,
 				69C8D7441F8902AF00976460 /* AppDelegate.swift in Sources */,
 				6994325B1FA60179004D7E44 /* PreferencesView.swift in Sources */,
 			);

@@ -202,15 +202,10 @@ DQ
                                     <action selector="okClicked:" target="cwe-aj-NSW" id="n4F-eh-b3g"/>
                                 </connections>
                             </button>
-                            <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1F6-3J-gog">
-                                <rect key="frame" x="18" y="116" width="44" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </colorWell>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-Kv-FnD">
                                 <rect key="frame" x="17" y="143" width="159" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Timer Color:" id="bmg-U2-9Kg">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Appearance:" id="bmg-U2-9Kg">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -286,20 +281,38 @@ Gw
                                     <action selector="alarmSoundSelectClicked:" target="cwe-aj-NSW" id="usN-kN-kcp"/>
                                 </connections>
                             </button>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1y-BP-eBL">
+                                <rect key="frame" x="17" y="113" width="161" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="Red" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="S8c-5E-CQk" id="iOK-dw-nPE">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="mGA-kN-8a2">
+                                        <items>
+                                            <menuItem title="Red" state="on" image="red" tag="1" id="S8c-5E-CQk"/>
+                                            <menuItem title="Yellow" image="yellow" tag="2" id="8TK-S1-7Xc"/>
+                                            <menuItem title="Blue" image="blue" tag="3" id="46p-dF-9AK"/>
+                                            <menuItem title="Green" image="green" tag="4" id="sKa-Cj-bV6">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="alarmSoundUrl" destination="JYj-3b-rFj" id="vsz-bL-ZRS"/>
+                        <outlet property="appearance" destination="m1y-BP-eBL" id="xzv-4j-8YJ"/>
                         <outlet property="durationHours" destination="F0J-Vv-c8o" id="bUh-mY-t69"/>
                         <outlet property="durationMinutes" destination="TCb-W7-mpF" id="wpE-NH-XFh"/>
                         <outlet property="durationSeconds" destination="GTe-bh-id5" id="5XD-OZ-VhG"/>
                         <outlet property="preferencesView" destination="xaG-hR-BgE" id="PhQ-uh-XWM"/>
-                        <outlet property="timerColor" destination="1F6-3J-gog" id="M0D-KN-2hJ"/>
                     </connections>
                 </viewController>
                 <customObject id="gQq-dV-z12" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="470.5"/>
+            <point key="canvasLocation" x="922" y="459"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -442,6 +455,7 @@ Gw
     </scenes>
     <resources>
         <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="blue" width="16" height="16"/>
         <image name="buttonCell:jsQ-vi-TWu:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
@@ -572,6 +586,9 @@ BRwKHBgcHBwjHCgcNRw4HEUcShxSHFUcWhxiHGUcdxx6HH8AAAAAAAACAQAAAAAAAABZAAAAAAAAAAAA
 AAAAAAAcgQ
 </mutableData>
         </image>
+        <image name="green" width="16" height="16"/>
+        <image name="red" width="16" height="16"/>
+        <image name="yellow" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lhy-fJ-woE"/>

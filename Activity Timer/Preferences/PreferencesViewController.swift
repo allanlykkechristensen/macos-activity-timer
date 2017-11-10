@@ -11,21 +11,27 @@ import Cocoa
 class PreferencesViewController: NSViewController {
 
     @IBOutlet weak var preferencesView: PreferencesView!
-    @IBOutlet weak var timerColor: NSColorWell!
     @IBOutlet weak var durationHours: NSPopUpButton!
     @IBOutlet weak var durationMinutes: NSPopUpButton!
     @IBOutlet weak var durationSeconds: NSPopUpButton!
     @IBOutlet weak var alarmSoundUrl: NSTextField!
+    @IBOutlet weak var durationHoursInput: NSTextField!
+    @IBOutlet weak var appearance: NSPopUpButton!
     
     var prefs = PreferencesModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         populateDuration()
-        loadPreferences()
+        loadPreferences(
+        )
     }
     
     // MARK: Event Handlers
+    
+    @IBAction func hoursStepper(_ sender: NSStepper) {
+        durationHoursInput.stringValue = sender.stringValue
+    }
     
     @IBAction func alarmSoundSelectClicked(_ sender: Any) {
         guard let window = view.window else { return }
@@ -61,16 +67,16 @@ class PreferencesViewController: NSViewController {
         durationHours.selectItem(withTag: prefs.selectedHours)
         durationMinutes.selectItem(withTag: prefs.selectedMinutes)
         durationSeconds.selectItem(withTag: prefs.selectedSeconds)
-        timerColor.color = prefs.selectedTimerColor
         alarmSoundUrl.stringValue = prefs.selectedAlarmSound
+        appearance.selectItem(withTag: prefs.selectedAppearance)
     }
     
     func savePreferences() {
         let totalTime = durationSeconds.selectedItem!.tag + (durationMinutes.selectedItem!.tag * 60) + (durationHours.selectedItem!.tag * 60 * 60)
         prefs.selectedTime = Double(totalTime)
-        prefs.selectedTimerColor = timerColor.color
         prefs.selectedAlarmSound = alarmSoundUrl.stringValue
-        
+        prefs.selectedAppearance = appearance.selectedItem!.tag
+
         NotificationCenter.default.post(name: Notification.Name(rawValue: "PrefsChanged") , object: nil)
     }
     
