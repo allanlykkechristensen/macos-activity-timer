@@ -122,7 +122,7 @@ extension ActivityTimerViewController {
     func updateDisplay(for timeRemaining: TimeInterval) {
         
         // FIXME: Don't like to have the font values here - at least store them as a constant somewhere.
-        timeLeftButton.attributedTitle = NSAttributedString(string: textToDisplay(for: timeRemaining), attributes: [ NSAttributedStringKey.foregroundColor : NSColor.red, NSAttributedStringKey.font: NSFont(name: "Arial Rounded MT Bold", size: 16)!])
+        timeLeftButton.attributedTitle = NSAttributedString(string: textToDisplay(for: timeRemaining), attributes: [ NSAttributedStringKey.foregroundColor : self.prefs.selectedTimerColor, NSAttributedStringKey.font: NSFont(name: "Arial Rounded MT Bold", size: 16)!])
         
         timerView.totalTime = prefs.selectedTime
         timerView.timeRemaining = timeRemaining / prefs.selectedTime
